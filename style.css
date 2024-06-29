@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000;
+  overflow: hidden;
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: transparent;
+  position: relative;
+
+  .min {
+    width: 500px;
+    height: 8px;
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    transform-origin: 0% 0%;
+    top: 50%;
+    left: 50%;
+    transform: rotate(calc(360deg / 100 * var(--d)));
+    transition: .5s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 30%;
+      transform: translateY(50%);
+      bottom: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: currentColor;
+      transition: 20s;
+    }
+
+    &:hover {
+      &::before {
+        width: 90px;
+        transition: 0s;
+      }
+    }
+  }
+
+
+  .min.orange {
+    color: orange;
+  }
+
+  .min.yellowgreen {
+    color: greenyellow;
+  }
+
+  .min.blue {
+    color: blue;
+  }
+
+  .min.cyan {
+    color: cyan;
+  }
+
+  .min.violet {
+    color: violet;
+  }
+
+  .min.purple {
+    color: mediumslateblue;
+  }
+
+  .min.spring {
+    color: springgreen;
+  }
+
+  .min.blanco {
+    color: white;
+  }
+
+  .min.dodger {
+    color: dodgerblue;
+  }
+
+  .min.red {
+    color: red;
+  }
+
+}
+
+
+@media (width <=1200px) {
+  .circle {
+    .min {
+      width: 200px;
+      height: 4px;
+
+      &::before {
+        width: 4px;
+        height: 4px;
+      }
+    }
+  }
+}
